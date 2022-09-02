@@ -1,7 +1,7 @@
 ﻿using System; // System namespace provide us with console.writeline, write, etc ... 
 using testing;
-using System.IO;  // include the System.IO namespace bto enable us to work with files 
-
+using System.IO;  // include the System.IO namespace bto enable us to work with files
+using System.Collections.Generic; // For Lists, 
 
 
 namespace ConsoleApp1
@@ -261,10 +261,41 @@ namespace ConsoleApp1
 
             Console.WriteLine($"{xx}{yx}{zx}"); // these are nullable types 
 
-            // Lists -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            // Lists (Documentation) https://www.tutorialsteacher.com/csharp/csharp-list -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            // Use the AddRange() method to add all the elements from an array or another collection to List.
+            // Use the Insert() method inserts an element into the List<T> collection at the specified index. Insert() signature: void Insert(int index, T item);
+            // Remove(), RemoveAt() 
+            // Contains (ie numbers.Contains(10))
 
+            List<int> primeNumbers = new List<int>();
+            primeNumbers.Add(1); // adding elements using add() method
+            primeNumbers.Add(3);
+            primeNumbers.Add(5);
+            primeNumbers.Add(7);
+            
 
+            var bigCities = new List<string>()
+                    {
+                        "New York",
+                        "London",
+                        "Mumbai",
+                        "Chicago"
+                    };
 
+            //var students = new List<Student>() {
+            //    new Student(){ Id = 1, Name="Bill"},
+            //    new Student(){ Id = 2, Name="Steve"},
+            //    new Student(){ Id = 3, Name="Ram"},
+            //    new Student(){ Id = 4, Name="Abdul"}
+            //};
+
+            ////get all students whose name is Bill
+            //var result = from s in students
+            //             where s.Name == "Bill"
+            //             select s;
+
+            //foreach (var student in result)
+            //    Console.WriteLine(student.Id + ", " + student.Name);
             // Tuple -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
             Tuple<string> tup = new Tuple<string>("Jason"); // very cumbersome 
             Console.WriteLine(tup);
@@ -272,6 +303,8 @@ namespace ConsoleApp1
             Console.WriteLine(xxx);
 
             // HashSet -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 
             // Dictionary -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -291,7 +324,7 @@ namespace ConsoleApp1
 
             //  Questions -------------------------------------------------------------------------------------------------------------------------------------------------------------------
             // lambda, deployment, indexers, await and sync, static and debugging, nameof expressions?, generics?, date and time, structs, delegates, reflection, garbage collector, appending to arrays all other data types. 
-            // typeof 
+            // typeof, LINQ 
 
         }
     }
