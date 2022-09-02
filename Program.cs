@@ -8,6 +8,17 @@ namespace ConsoleApp1
 {
     class Program
     {
+        // Structs -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        // struct can be used to hold small data values that do not require inheritance, e.g. coordinate points, key-value pairs, and complex data structure
+        // Above, an object of the Coordinate structure is created using the new keyword. It calls the default parameterless constructor of the struct, which initializes all the members to their default value of the specified data type.
+        // If you declare a variable of struct type without using new keyword, it does not call any constructor, so all the members remain unassigned.Therefore, you must assign values to each member before accessing them, otherwise, it will give a compile-time error.
+        struct Coordinate
+        {
+            public int x;
+            public int y;
+        }
+
+        // Enums -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
         enum year // enums can't in the main function? 
         {
             // items of the enum
@@ -18,6 +29,8 @@ namespace ConsoleApp1
             May=100, // 100
             June // 101
         }
+
+        // Operator overloading -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
         public static int plus(int a, int b)
         {
             // Console.WriteLine(Car.t()); // The reason is simple: a static method can be accessed without creating an object of the class, while public methods can only be accessed by objects.
@@ -37,6 +50,8 @@ namespace ConsoleApp1
         {
             return a + b;
         }
+
+        // Main Function ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
         static void Main(string[] args)
         {
             /* Multi-line comment */
@@ -193,7 +208,8 @@ namespace ConsoleApp1
             // you should note that if you declare an array and initialize it later, you have to use the new keyword:
 
             string[] t;
-            t = new string[] { "Volvo", "BMW", "Ford" };
+            t = new string[] { "Volvo", "BMW", "Ford" }; // Arrays are faster than list, 
+
 
             //  Methods Parameters -------------------------------------------------------------------------------------------------------------------------------------------------------------------
             // Static classes are sealed, one cannot inherit a static class from another class. 
@@ -215,7 +231,7 @@ namespace ConsoleApp1
 
             //  Enum -------------------------------------------------------------------------------------------------------------------------------------------------------------------
             year yy = year.April;
-            int y = (int) year.April;
+            int y = (int)year.April;
             Console.WriteLine(y);
             Console.WriteLine(yy);
 
@@ -238,7 +254,8 @@ namespace ConsoleApp1
                 int[] n = { 1, 2, 3 };
                 //Console.WriteLine(n[0]);
                 // Console.WriteLine(n[10]); // uncommen this to see error 
-                if(1 == n[1]){
+                if (1 == n[1])
+                {
                     throw new ArithmeticException("Access denied."); // (Difference between throw, throw new, and throw new Exception(e.Message)) https://stackoverflow.com/questions/2999298/difference-between-throw-and-throw-new-exception
                 }
             }
@@ -272,7 +289,7 @@ namespace ConsoleApp1
             primeNumbers.Add(3);
             primeNumbers.Add(5);
             primeNumbers.Add(7);
-            
+
 
             var bigCities = new List<string>()
                     {
@@ -302,14 +319,130 @@ namespace ConsoleApp1
             var xxx = Tuple.Create("jason", 1, true); // easily done 
             Console.WriteLine(xxx);
 
-            // HashSet -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            // HashSet (Documentation) https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.hashset-1?view=net-6.0 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            // In C#, HashSet is an unordered collection of unique elements
+            // ashSet is the number of elements it can hold. A HashSet is a dynamic collection means the size of the HashSet is automatically increased when the new elements are added.
+            // In HashSet, you can only store the same type of elements.
+            // The HashSet class implements the ICollection, IEnumerable, IReadOnlyCollection, ISet, IEnumerable, IDeserializationCallback, and ISerializable interfaces.
+            // Add(), Remove(), RemoveWhere(), Clear(), 
 
+            HashSet<string> Hashset_name = new HashSet<string>();
+            Hashset_name.Add("C");
+            Hashset_name.Add("C++");
+            Hashset_name.Add("C#");
+            Hashset_name.Add("Java");
+            Hashset_name.Add("Ruby");
+
+            HashSet<string> hs = new HashSet<string>();
+            hs.Add("sdfasdfa");
+            hs.Add("Csdfasdfa+");
+            hs.Add("Csdfasdfa");
+            hs.Add("Jasdfasdfaa");
+            hs.Add("Rusdfasdfay");
+
+            Hashset_name.UnionWith(hs); // inplace 
+            foreach (var element in Hashset_name)
+            {
+                Console.WriteLine(element);
+            }
 
 
             // Dictionary -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            // Elements are stored as KeyValuePair<TKey, TValue> objects.
+            //  cities.ElementAt(i).Key
+            /*if(cities.ContainsKey("France")){
+            cities["France"] = "Paris";
+            }*/
+            // Remove, Clear 
+            // 
+
+            Dictionary<string, int> nn = new Dictionary<string, int>();
+            nn.Add("One", 1); //adding a key/value using the Add() method
+            nn.Add("Two", 1);
+            nn.Add("Three", 1);
+
+            foreach (KeyValuePair<string, int> kvp in nn)
+            {
+                Console.WriteLine("Key: {0}, Value: {1}", kvp.Key, kvp.Value);
+            }
+
+
+            // Lambda functions -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            // x => {x+x};
+
+
+            // Date and Time -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            // Operators:  +, -, ==, !=, >, <, <=, >=
+
+
+            DateTime dt = new DateTime(); // assigns default value 01/01/0001 00:00:00
+            Console.WriteLine(dt);
+            //assigns year, month, day, hour, min, seconds, UTC timezone
+            DateTime dt4 = new DateTime(2015, 12, 31, 5, 10, 20, DateTimeKind.Utc);
+
+            DateTime currentDateTime = DateTime.Now;  //returns current date and time
+            DateTime todaysDate = DateTime.Today; // returns today's date
+            DateTime currentDateTimeUTC = DateTime.UtcNow;// returns current UTC date and time
+
+            DateTime maxDateTimeValue = DateTime.MaxValue; // returns max value of DateTime // not used much 
+            DateTime minDateTimeValue = DateTime.MinValue; // returns min value of DateTime // not used much 
+            Console.WriteLine(maxDateTimeValue);
+            Console.WriteLine(minDateTimeValue);
+
+            DateTime dtt = new DateTime(2015, 12, 31);
+            TimeSpan ts = new TimeSpan(25, 20, 55);
+            DateTime newDate = dtt.Add(ts);
+            Console.WriteLine(newDate);//1/1/2016 1:20:55 AM
+
+            DateTime dt1 = new DateTime(2015, 12, 31);
+            DateTime dt2 = new DateTime(2016, 2, 2);
+            TimeSpan r = dt2.Subtract(dt1);//33.00:00:00
+
+
+
+            var s = "5/12/2020";
+            DateTime DT;
+            var isValidDate = DateTime.TryParse(s, out DT); // or use TryParseExact() 
+            if (isValidDate)
+                Console.WriteLine(DT);
+            else
+                Console.WriteLine($"{s} is not a valid date string");
+
+            // Structs -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            /*struct can include constructors, constants, fields, methods, properties, indexers, operators, events & nested types.
+              struct cannot include a parameterless constructor or a destructor.
+              struct can implement interfaces, same as class.
+              struct cannot inherit another structure or class, and it cannot be the base of a class.
+              struct members cannot be specified as abstract, sealed, virtual, or protected.
+            */
+            // Structs are public by default and class are private by default. 
+
+            Coordinate point = new Coordinate();
+            Console.WriteLine(point.x); //output: 0  
+            Console.WriteLine(point.y); //output: 0  
+            point.x = 5;
+            point.y = 9;
+            Console.WriteLine(point.x); //output: 0  
+            Console.WriteLine(point.y); //output: 0  
+
+            // Garbage collecter -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+            // Indexers -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
 
             // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
             // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 
 
@@ -317,18 +450,18 @@ namespace ConsoleApp1
             // && (and), or (||), 
             // this is the same as self in python 
             // var lets the compiler decides on what type the data should be 
-            // 
+            // in,out, and ref https://www.pluralsight.com/guides/csharp-in-out-ref-parameters 
             // global : It's a sometime-necessary prefix indicating the root namespace. It's often added to generated code to avoid name clashes with user code. For example, imagine you had a class called System, but then you wanted to use System.String.You could use global::System.String to differentiate.
 
 
 
             //  Questions -------------------------------------------------------------------------------------------------------------------------------------------------------------------
-            // lambda, deployment, indexers, await and sync, static and debugging, nameof expressions?, generics?, date and time, structs, delegates, reflection, garbage collector, appending to arrays all other data types. 
-            // typeof, LINQ 
-
+            // deployment, await and sync, static and debugging, nameof expressions?, delegates, reflection, typeof in C#, LINQ 
+            // The HashSet class implements the ICollection, IEnumerable, IReadOnlyCollection, ISet, IEnumerable, IDeserializationCallback, and ISerializable interfaces? 
+            // Fun: history of dates (gregorian and julian calendars), 
         }
     }
 }   
 
-    
-    
+
+
