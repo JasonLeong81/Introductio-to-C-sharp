@@ -33,7 +33,7 @@ namespace ConsoleApp1
         // Operator overloading -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
         public static int plus(int a, int b)
         {
-            // Console.WriteLine(Car.t()); // The reason is simple: a static method can be accessed without creating an object of the class, while public methods can only be accessed by objects.
+            // Console.WriteLine(Car.t()); // The reason is simple: a static method can be accessed without creating an object/instance of the class, while public methods can only be accessed by objects.
             Car c = new Car();
             c.Name = "not random";
             Console.WriteLine(c.Name); // can only reference if it is public static (not really, read comment above)
@@ -103,12 +103,12 @@ namespace ConsoleApp1
 
             // User Input -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-            Console.WriteLine("Enter username:");
-            string userName = Console.ReadLine();
-            Console.WriteLine("Username is: " + userName);
+            //Console.WriteLine("Enter username:");
+            //string userName = Console.ReadLine();
+            //Console.WriteLine("Username is: " + userName);
 
             // Operators -------------------------------------------------------------------------------------------------------------------------------------------------------------------
-            // +, -, *, /, 5, ++, --, &&, ||, !, 
+            // +, -, *, /, %, ++, --, &&, ||, !, 
 
 
             //  Strings -------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -216,7 +216,7 @@ namespace ConsoleApp1
 
             static void test(int age, string country = "Norway") // args before kwargs, same as python 
             {
-                Console.WriteLine(country);
+                Console.WriteLine($"{country} is {age} years old.");
             }
 
             test(10);
@@ -274,9 +274,10 @@ namespace ConsoleApp1
             str ??= "Hello World";
             Console.WriteLine(str);
             int? xx = null, yx = null, zx = null;
-            xx ??= yx ??= zx ??= 5;
+            xx ??= yx ??= 5;
+            zx ??= 10;
 
-            Console.WriteLine($"{xx}{yx}{zx}"); // these are nullable types 
+            Console.WriteLine($"{xx}{yx}{zx} -----------------------------"); // these are nullable types 
 
             // Lists (Documentation) https://www.tutorialsteacher.com/csharp/csharp-list -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
             // Use the AddRange() method to add all the elements from an array or another collection to List.
@@ -423,17 +424,22 @@ namespace ConsoleApp1
             point.x = 5;
             point.y = 9;
             Console.WriteLine(point.x); //output: 0  
-            Console.WriteLine(point.y); //output: 0  
+            Console.WriteLine(point.y); //output: 0
 
-        // Garbage collecter -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-
-        // Indexers -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            // Garbage collecter -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            // 
 
 
+            // Indexers -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            // An indexer is a special type of property that allows a class or a structure to be accessed like an array for its internal collection. C# allows us to define custom indexers, generic indexers, and also overload indexers.
+            // You can be overloaded with the different data types for index. The following example overloads an indexer with int type index as well as string type index.
 
-        
+
+
+            // CLR -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            // The Common Language Runtime (CLR) is programming that manages the execution of programs written in any of several supported languages, allowing them to share common object-oriented classes written in any of the languages.
+
+
 
 
             // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -447,10 +453,9 @@ namespace ConsoleApp1
 
 
             // Notes -------------------------------------------------------------------------------------------------------------------------------------------------------------------
-            // && (and), or (||), 
             // this is the same as self in python 
             // var lets the compiler decides on what type the data should be 
-            // in,out, and ref https://www.pluralsight.com/guides/csharp-in-out-ref-parameters 
+            // in,out, and ref https://www.pluralsight.com/guides/csharp-in-out-ref-parameters // ref is maybe will change, in is cannot changed, out is must changed. 
             // global : It's a sometime-necessary prefix indicating the root namespace. It's often added to generated code to avoid name clashes with user code. For example, imagine you had a class called System, but then you wanted to use System.String.You could use global::System.String to differentiate.
 
 
