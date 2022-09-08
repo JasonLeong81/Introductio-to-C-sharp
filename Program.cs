@@ -432,7 +432,7 @@ namespace ConsoleApp1
 
             // Indexers -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
             // An indexer is a special type of property that allows a class or a structure to be accessed like an array for its internal collection. C# allows us to define custom indexers, generic indexers, and also overload indexers.
-            // You can be overloaded with the different data types for index. The following example overloads an indexer with int type index as well as string type index.
+            // You can be overloaded with the different data types for index. The following example overloads an indexer with int type index as well as string type index. 
 
 
 
