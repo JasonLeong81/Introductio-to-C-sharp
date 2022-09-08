@@ -461,9 +461,9 @@ namespace ConsoleApp1
 
 
             //  Questions -------------------------------------------------------------------------------------------------------------------------------------------------------------------
-            // deployment, await and sync, static and debugging, nameof expressions?, delegates, reflection, typeof in C#, LINQ 
+            // deployment, await and sync, static and debugging, nameof expressions?, delegates, reflection, typeof in C#, LINQ, object 
             // The HashSet class implements the ICollection, IEnumerable, IReadOnlyCollection, ISet, IEnumerable, IDeserializationCallback, and ISerializable interfaces? 
-            // Fun: history of dates (gregorian and julian calendars), 
+            // Fun: history of dates (gregorian and julian calendars)
         }
     }
 }   
